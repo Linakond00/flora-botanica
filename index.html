@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLORA & BOTANICA — Авторские букеты</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ИНТЕРАКТИВНЫЙ ФОН CANVAS -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- 1. НАВИГАЦИЯ -->
+  <header class="header-wrap">
+    <nav class="navbar">
+      <a href="#" class="navbar__logo">FLORA & BOTANICA</a>
+
+      <div class="navbar__links" id="navLinks">
+        <a href="#hero">ГЛАВНАЯ</a>
+        <a href="#about">О НАС</a>
+        <a href="#catalog">КАТАЛОГ</a>
+        <a href="#feedback">СВЯЗАТЬСЯ</a>
+        <a href="#reviews">ОТЗЫВЫ</a>
+        <a href="#contacts">КОНТАКТЫ</a>
+      </div>
+
+      <div class="navbar__right">
+        <button class="icon-btn js-open-fav-modal" aria-label="Открыть избранное">
+          ♡ <span id="fav-count">0</span>
+        </button>
+        <button class="burger-menu" id="burgerBtn" aria-label="Открыть меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 2. УВЕЛИЧЕННЫЙ HERO-БАННЕР -->
+    <section id="hero" class="hero-unified">
+      <div class="container container--wide">
+        <div class="hero-banner">
+          <div class="hero-banner__content">
+            <h1 class="hero-banner__title">Авторские букеты</h1>
+            <p class="hero-banner__subtitle">Уникальные букеты от ведущих флористов FLORA & BOTANICA</p>
+            <div class="hero-banner__actions">
+              <a href="#catalog" class="btn btn--gold">Перейти в каталог</a>
+            </div>
+          </div>
+          <div class="hero-banner__media">
+            <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=1200&q=80" alt="Авторский букет цветов" class="hero-banner__img">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. БЛОК "О НАС" (Бордовый фон + 3 отдельных блока) -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="about-intro">
+          <h2 class="section-title text-light">О нашей студии</h2>
+          <p class="about-text text-light-sub">
+            <strong>FLORA & BOTANICA</strong> — это пространство флористического искусства, где каждая композиция собирается с трепетом и любовью. Мы отбираем самые свежие бутоны, редкие сорта цветов и эстетичную упаковку. Наша цель — создавать эстетику, которая вдохновляет и запечатлевает самые важные моменты вашей жизни.
+          </p>
+        </div>
+
+        <div class="about-stats-grid">
+          <div class="stat-card">
+            <span class="stat-card__num">5+</span>
+            <span class="stat-card__label">лет создаем радость</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__num">10k+</span>
+            <span class="stat-card__label">доставленных букетов</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__num">100%</span>
+            <span class="stat-card__label">гарантия свежести</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. КАТАЛОГ С КАРТОЧКАМИ (8 шт.) -->
+    <section id="catalog" class="catalog">
+      <div class="container">
+        <h2 class="section-title">Каталог букетов</h2>
+        <div class="catalog__grid">
+          
+          <!-- Карточка 1 -->
+          <article class="card" data-id="1" data-title="Нежный зефир" data-price="4 900 ₽" data-img="images/1.jpg">
+            <div class="card__inner">
+              <div class="card__front">
+                <div class="card__img-wrap">
+                  <img src="images/1.jpg" alt="Нежный зефир" class="card__img">
+                </div>
+                <h3 class="card__title">Нежный зефир</h3>
+                <p class="card__price">4 900 ₽</p>
+              </div>
+              <div class="card__back">
+                <h3 class="card__back-title">Состав и детали</h3>
+                <p class="card__details">Белые и нежно-розовые/персиковые классические розы.</p>
+                <p class="card__info">Стойкость: до 10 дней</p>
+                <div class="card__back-actions">
+                  <button class="btn btn--light js-open-modal" data-product="Нежный зефир">Заказать</button>
+                  <button class="card__fav-btn js-fav-btn" aria-label="В избранное">♡</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Карточка 2 -->
+          <article class="card" data-id="2" data-title="Классический страстный" data-price="5 500 ₽" data-img="images/2.jpg">
+            <div class="card__inner">
+              <div class="card__front">
+                <div class="card__img-wrap">
+                  <img src="images/2.jpg" alt="Классический страстный" class="card__img">
+                </div>
+                <h3 class="card__title">Классический страстный</h3>
+                <p class="card__price">5 500 ₽</p>
+              </div>
+              <div class="card__back">
+                <h3 class="card__back-title">Состав и детали</h3>
+                <p class="card__details">Красные классические розы (монобукет из ~25–31 штуки).</p>
+                <p class="card__info">Стойкость: до 10 дней</p>
+                <div class="card__back-actions">
+                  <button class="btn btn--light js-open-modal" data-product="Классический страстный">Заказать</button>
+                  <button class="card__fav-btn js-fav-btn" aria-label="В избранное">♡</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Карточка 3 -->
+          <article class="card" data-id="3" data-title="Оранжевое солнце" data-price="4 500 ₽" data-img="images/3.jpg">
+            <div class="card__inner">
+              <div class="card__front">
+                <div class="card__img-wrap">
+                  <img src="images/3.jpg" alt="Оранжевое солнце" class="card__img">
+                </div>
+                <h3 class="card__title">Оранжевое солнце</h3>
+                <p class="card__price">4 500 ₽</p>
+              </div>
+              <div class="card__back">
+                <h3 class="card__back-title">Состав и детали</h3>
+                <p class="card__details">Ярко-оранжевые тюльпаны (монобукет из ~35–45 штук).</p>
+                <p class="card__info">Стойкость: до 7 дней</p>
+                <div class="card__back-actions">
+                  <button class="btn btn--light js-open-modal" data-product="Оранжевое солнце">Заказать</button>
+                  <button class="card__fav-btn js-fav-btn" aria-label="В избранное">♡</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Карточка 4 -->
+          <article class="card" data-id="4" data-title="Полевая свежесть" data-price="3 800 ₽" data-img="images/4.jpg">
+            <div class="card__inner">
+              <div class="card__front">
+                <div class="card__img-wrap">
+                  <img src="images/4.jpg" alt="Полевая свежесть" class="card__img">
+                </div>
+                <h3 class="card__title">Полевая свежесть</h3>
+                <p class="card__price">3 800 ₽</p>
+              </div>
+              <div class="card__back">
+                <h3 class="card__back-title">Состав и детали</h3>
+                <p class="card__details">Белая кустовая хризантема, нежно-розовые кустовые розы, ромашковидная хризантема, зелень.</p>
+                <p class="card__info">Стойкость: до 14 дней</p>
+                <div class="card__back-actions">
+                  <button class="btn btn--light js-open-modal" data-product="Полевая свежесть">Заказать</button>
+                  <button class="card__fav-btn js-fav-btn" aria-label="В избранное">♡</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Карточка 5 -->
+          <article class="card" data-id="5" data-title="Лавандовая нежность" data-price="4 200 ₽" data-img="images/5.jpg">
+            <div class="card__inner">
+              <div class="card__front">
+                <div class="card__img-wrap">
+                  <img src="images/5.jpg" alt="Лавандовая нежность" class="card__img">
+                </div>
+                <h3 class="card__title">Лавандовая нежность</h3>
+                <p class="card__price">4 200 ₽</p>
+              </div>
+              <div class="card__back">
+                <h3 class="card__back-title">Состав и детали</h3>
+                <p class="card__details">Сиреневые/сиренево-розовые пионовидные розы, альстромерии, маттиола, декоративная зелень.</p>
+                <p class="card__info">Стойкость: до 12 дней</p>
+                <div class="card__back-actions">
+                  <button class="btn btn--light js-open-modal" data-product="Лавандовая нежность">Заказать</button>
+                  <button class="card__fav-btn js-fav-btn" aria-label="В избранное">♡</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Карточка 6 -->
+          <article class="card" data-id="6" data-title="Белоснежное облако" data-price="5 200 ₽" data-img="images/6.jpg">
+            <div class="card__inner">
+              <div class="card__front">
+                <div class="card__img-wrap">
+                  <img src="images/6.jpg" alt="Белоснежное облако" class="card__img">
+                </div>
+                <h3 class="card__title">Белоснежное облако</h3>
+                <p class="card__price">5 200 ₽</p>
+              </div>
+              <div class="card__back">
+                <h3 class="card__back-title">Состав и детали</h3>
+                <p class="card__details">Белые кустовые розы, белоснежная кустовая хризантема, эустома (лизиантус), хамелациум, веточки эвкалипта.</p>
+                <p class="card__info">Стойкость: до 14 дней</p>
+                <div class="card__back-actions">
+                  <button class="btn btn--light js-open-modal" data-product="Белоснежное облако">Заказать</button>
+                  <button class="card__fav-btn js-fav-btn" aria-label="В избранное">♡</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Карточка 7 -->
+          <article class="card" data-id="7" data-title="Яркое настроение" data-price="3 500 ₽" data-img="images/7.jpg">
+            <div class="card__inner">
+              <div class="card__front">
+                <div class="card__img-wrap">
+                  <img src="images/7.jpg" alt="Яркое настроение" class="card__img">
+                </div>
+                <h3 class="card__title">Яркое настроение</h3>
+                <p class="card__price">3 500 ₽</p>
+              </div>
+              <div class="card__back">
+                <h3 class="card__back-title">Состав и детали</h3>
+                <p class="card__details">Розовые и жёлтые герберы, сиреневые и белые классические розы, гвоздики (диантусы), свежая декоративная зелень.</p>
+                <p class="card__info">Стойкость: до 12 дней</p>
+                <div class="card__back-actions">
+                  <button class="btn btn--light js-open-modal" data-product="Яркое настроение">Заказать</button>
+                  <button class="card__fav-btn js-fav-btn" aria-label="В избранное">♡</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Карточка 8 -->
+          <article class="card" data-id="8" data-title="Огненный бархат" data-price="4 800 ₽" data-img="images/8.jpg">
+            <div class="card__inner">
+              <div class="card__front">
+                <div class="card__img-wrap">
+                  <img src="images/8.jpg" alt="Огненный бархат" class="card__img">
+                </div>
+                <h3 class="card__title">Огненный бархат</h3>
+                <p class="card__price">4 800 ₽</p>
+              </div>
+              <div class="card__back">
+                <h3 class="card__back-title">Состав и детали</h3>
+                <p class="card__details">Бордовые розы, нежно-розовые розы, терракотовые/оранжевые пионовидные розы.</p>
+                <p class="card__info">Стойкость: до 10 дней</p>
+                <div class="card__back-actions">
+                  <button class="btn btn--light js-open-modal" data-product="Огненный бархат">Заказать</button>
+                  <button class="card__fav-btn js-fav-btn" aria-label="В избранное">♡</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. БАННЕР С 12 АНИМИРОВАННЫМИ ЗВЁЗДАМИ -->
+    <section class="banner">
+      <span class="star star--1">✦</span>
+      <span class="star star--2">✧</span>
+      <span class="star star--3">✦</span>
+      <span class="star star--4">✧</span>
+      <span class="star star--5">✦</span>
+      <span class="star star--6">✧</span>
+      <span class="star star--7">✦</span>
+      <span class="star star--8">✧</span>
+      <span class="star star--9">✦</span>
+      <span class="star star--10">✧</span>
+      <span class="star star--11">✦</span>
+      <span class="star star--12">✧</span>
+      <div class="banner__container">
+        <p class="banner__text">Наши букеты <em>запускают импульс радости</em> и зажигают тебя изнутри</p>
+        <a href="#catalog" class="btn btn--pill">Смотреть все</a>
+      </div>
+    </section>
+
+    <!-- 6. ФОРМА ОБРАТНОЙ СВЯЗИ -->
+    <section id="feedback" class="feedback-section">
+      <div class="container">
+        <div class="feedback-box">
+          <h2 class="section-title text-light">Остались вопросы?</h2>
+          <p class="feedback-subtitle">Оставьте ваш номер или вопрос, и наш флорист свяжется с вами в течение 10 минут!</p>
+          <form class="feedback-form js-form-submit">
+            <div class="form-row">
+              <input type="text" placeholder="Ваше имя" required class="form-input">
+              <input type="tel" placeholder="Телефон (+7)" required class="form-input">
+            </div>
+            <textarea placeholder="Ваш вопрос или пожелание..." rows="3" class="form-input form-textarea"></textarea>
+            <button type="submit" class="btn btn--gold btn--center">Отправить заявку</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. КАРАУСЕЛЬ ОТЗЫВОВ -->
+    <section id="reviews" class="insta-reviews">
+      <div class="container">
+        <h2 class="insta-reviews__title">Мы просто <em>обожаем смотреть</em> ваши фото!</h2>
+        <div class="carousel-wrapper">
+          <button class="carousel-btn carousel-btn--prev" id="prevBtn" aria-label="Назад">‹</button>
+          <div class="carousel-track-container">
+            <div class="carousel-track" id="carouselTrack">
+              
+              <div class="insta-post">
+                <div class="insta-post__header">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="аватар" class="insta-post__avatar">
+                  <div><p class="insta-post__user">sofichileva</p><p class="insta-post__location">Санкт-Петербург</p></div>
+                </div>
+                <img src="images/1.1.jpg" alt="фото" class="insta-post__img">
+                <div class="insta-post__footer"><p class="insta-post__stats">♡ 1 461 &nbsp; 💬 25</p></div>
+              </div>
+
+              <div class="insta-post">
+                <div class="insta-post__header">
+                  <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80" alt="аватар" class="insta-post__avatar">
+                  <div><p class="insta-post__user">sekachevva</p><p class="insta-post__location">Москва</p></div>
+                </div>
+                <img src="images/2.1.jpg" alt="фото" class="insta-post__img">
+                <div class="insta-post__footer"><p class="insta-post__stats">♡ 187 &nbsp; 💬 13</p></div>
+              </div>
+
+              <div class="insta-post">
+                <div class="insta-post__header">
+                  <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=100&q=80" alt="аватар" class="insta-post__avatar">
+                  <div><p class="insta-post__user">marsy.yanka</p><p class="insta-post__location">Красное село</p></div>
+                </div>
+                <img src="images/3.1.jpg" alt="фото" class="insta-post__img">
+                <div class="insta-post__footer"><p class="insta-post__stats">♡ 390 &nbsp; 💬 23</p></div>
+              </div>
+
+              <div class="insta-post">
+                <div class="insta-post__header">
+                  <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="аватар" class="insta-post__avatar">
+                  <div><p class="insta-post__user">ann_daria</p><p class="insta-post__location">Гатчина</p></div>
+                </div>
+                <img src="images/4.1.jpg" alt="фото" class="insta-post__img">
+                <div class="insta-post__footer"><p class="insta-post__stats">♡ 812 &nbsp; 💬 42</p></div>
+              </div>
+
+              <div class="insta-post">
+                <div class="insta-post__header">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="аватар" class="insta-post__avatar">
+                  <div><p class="insta-post__user">kate_vamp</p><p class="insta-post__location">Петергоф</p></div>
+                </div>
+                <img src="images/5.1.jpg" alt="фото" class="insta-post__img">
+                <div class="insta-post__footer"><p class="insta-post__stats">♡ 654 &nbsp; 💬 19</p></div>
+              </div>
+
+              <div class="insta-post">
+                <div class="insta-post__header">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="аватар" class="insta-post__avatar">
+                  <div><p class="insta-post__user">vlad_flowers</p><p class="insta-post__location">Южно-Сахалинск</p></div>
+                </div>
+                <img src="images/6.1.jpg" alt="фото" class="insta-post__img">
+                <div class="insta-post__footer"><p class="insta-post__stats">♡ 1 120 &nbsp; 💬 56</p></div>
+              </div>
+
+            </div>
+          </div>
+          <button class="carousel-btn carousel-btn--next" id="nextBtn" aria-label="Вперед">›</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 8. ФУТЕР -->
+  <footer class="footer" id="contacts">
+    <div class="container footer__container">
+      <div class="footer__col">
+        <h3 class="footer__logo">FLORA & BOTANICA</h3>
+        <p class="footer__desc">Создаем флористическое искусство для ваших самых важных моментов.</p>
+        
+        <div class="social-links">
+          <a href="https://t.me/Iina_kond" target="_blank" rel="noopener" class="social-icon" aria-label="Telegram">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-2.02 9.51c-.15.68-.55.84-1.12.52l-3.1-2.29-1.5 1.44c-.17.17-.31.31-.63.31l.22-3.17 5.77-5.21c.25-.22-.05-.35-.39-.12l-7.14 4.49-3.07-.96c-.67-.21-.68-.67.14-.99l12.01-4.63c.56-.2 1.05.14.83.91z"/></svg>
+          </a>
+          <a href="https://github.com/Linakond00" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <a href="mailto:kondurova.2006@mail.ru" target="_blank" rel="noopener" class="social-icon" aria-label="Mail.ru">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 15.894c-.288.288-.756.288-1.044 0l-3.85-3.85-1.894 1.894c-.586.586-1.536.586-2.122 0l-1.894-1.894-3.85 3.85c-.288.288-.756.288-1.044 0a.738.738 0 010-1.044l3.85-3.85-3.85-3.85a.738.738 0 010-1.044c.288-.288.756-.288 1.044 0l3.85 3.85 1.894-1.894c.586-.586 1.536-.586 2.122 0l1.894 1.894 3.85-3.85c.288-.288.756-.288 1.044 0a.738.738 0 010 1.044l-3.85 3.85 3.85 3.85c.288.288.288.756 0 1.044z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__heading">Контакты & Адрес</h4>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <span class="contact-icon">📍</span>
+            <span>г. Санкт-Петербург, пр. Вознесенский, д. 44-46</span>
+          </li>
+          <li class="contact-item">
+            <span class="contact-icon">📞</span>
+            <a href="tel:+79006573661">+7 (900) 657-36-61</a>
+          </li>
+          <li class="contact-item">
+            <span class="contact-icon">⏰</span>
+            <span>Ежедневно: с 09:00 до 21:00</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom"><p>Создано с помощью Gemini 3ч © 2026 Кондурова Ангелина.</p></div>
+  </footer>
+
+  <!-- МОДАЛЬНОЕ ОКНО: ИЗБРАННОЕ -->
+  <div class="modal" id="modal-favorites" aria-hidden="true" role="dialog">
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__window modal__window--wide">
+      <button class="modal__close" aria-label="Закрыть" data-close>×</button>
+      <h2 class="modal__title">Ваше избранное</h2>
+      <div id="fav-modal-list" class="fav-list"></div>
+    </div>
+  </div>
+
+  <!-- МОДАЛЬНОЕ ОКНО: БЫСТРЫЙ ЗАКАЗ -->
+  <div class="modal" id="modal-order" aria-hidden="true" role="dialog">
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__window">
+      <button class="modal__close" aria-label="Закрыть" data-close>×</button>
+      <h2>Быстрый заказ</h2>
+      <p>Вы заказываете: <strong id="modal-product-name">Букет</strong></p>
+      
+      <form class="form js-modal-form" novalidate>
+        <div class="form__group">
+          <label for="modal-phone">Ваш номер телефона *</label>
+          <input type="tel" id="modal-phone" required placeholder="+7 (999) 000-00-00">
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">Подтвердить заказ</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
