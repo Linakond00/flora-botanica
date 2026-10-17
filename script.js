@@ -229,8 +229,8 @@ document.addEventListener('DOMContentLoaded', () => {
         this.angularSpeed = (Math.random() - 0.5) * 0.02;
         this.flip = Math.random() * Math.PI;
         this.flipSpeed = Math.random() * 0.03 + 0.01;
-        this.color = Math.random() > 0.4 ? 'rgba(120, 20, 35, ' : 'rgba(160, 35, 55, ';
-        this.opacity = Math.random() * 0.4 + 0.3;
+        this.color = Math.random() > 0.4 ? 'rgba(217, 182, 106, ' : 'rgba(201, 110, 130, ';
+        this.opacity = Math.random() * 0.3 + 0.2;
         this.swaySpeed = Math.random() * 0.02 + 0.01;
         this.swayOffset = Math.random() * Math.PI * 2;
       }
@@ -351,7 +351,34 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(animate);
     }
 
-    animate();
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) animate();
   }
+
+  // --- 7. ФОРМА БЫСТРОГО ЗАКАЗА ---
+  const orderForm = document.querySelector('.js-modal-form');
+  if (orderForm) {
+    orderForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const phone = orderForm.querySelector('input[type="tel"]');
+      if (phone.value.replace(/\D/g, '').length < 10) {
+        phone.focus();
+        phone.setCustomValidity('Введите номер полностью, например +7 (999) 000-00-00');
+        phone.reportValidity();
+        phone.addEventListener('input', () => phone.setCustomValidity(''), { once: true });
+        return;
+      }
+      alert('Спасибо! Мы перезвоним вам для подтверждения заказа.');
+      orderForm.reset();
+      modalOrder.classList.remove('is-open');
+    });
+  }
+
+  // --- 8. ЗАКРЫТИЕ ОКОН ПО ESC ---
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      modalFavorites.classList.remove('is-open');
+      modalOrder.classList.remove('is-open');
+    }
+  });
 
 });
